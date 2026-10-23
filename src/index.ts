@@ -276,7 +276,7 @@ async function handleContributor(
       [
         `${login} has no counted pull requests in ${program.title}.`,
         status === "ended"
-          ? `${program.title} is over and you had no counted PRs in it.`
+            ? `${program.title} is over, so no more pull requests can count.`
           : "A card appears with the first merged pull request that counts.",
       ],
       false,

@@ -377,9 +377,10 @@ describe("GET /leaderboard/{id}/u/{login}", () => {
     expect(html).toContain(`<a href="/leaderboard/${id}">See the leaderboard</a>`);
     expect(html).toContain('<a href="https://github.com/search?q=example">Find an issue</a>');
     const futureCard = "A card appears with the first merged pull request that counts.";
-    const endedMessage = "Community program is over and you had no counted PRs in it.";
+    const endedMessage = "Community program is over, so no more pull requests can count.";
     expect(html).toContain(ended ? endedMessage : futureCard);
     expect(html).not.toContain(ended ? futureCard : endedMessage);
+    expect(html).not.toContain("you had no counted PRs");
 
     const image = await get(`/leaderboard/${id}/u/bob.png`);
     expect(image.status).toBe(404);
